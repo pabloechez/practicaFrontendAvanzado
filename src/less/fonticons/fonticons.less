@@ -1,0 +1,46 @@
+@typo_path: "./../../assets/fonts/typo/";
+
+@font-face {
+  font-family: 'typo';
+  src: url('@{typo_path}typo.eot');
+  src: url('@{typo_path}typo.eot?#iefix') format('embedded-opentype'),
+  url('@{typo_path}typo.woff2') format('woff2'),
+  url('@{typo_path}typo.woff') format('woff'),
+  url('@{typo_path}typo.ttf') format('truetype'),
+  url('@{typo_path}typo.svg#typo') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@icoFont:'typo';
+
+
+.fonticon(@code) {
+  content: @code;
+  font-family: @icoFont;
+  //font-size: 1em;
+  //line-height: 1em;
+  .font-size(@font-size-small);
+  line-height: @line-height-small;
+  font-weight: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  margin-right:0.25em;
+  text-indent: 0;
+}
+
+.fonticon_magnifying() {
+  .fonticon("\e903");
+}
+
+.fonticon_calendar() {
+  .fonticon("\e900");
+}
+
+.fonticon_comments() {
+  .fonticon("\e901");
+}
+
+.fonticon_heart() {
+  .fonticon("\e902");
+}

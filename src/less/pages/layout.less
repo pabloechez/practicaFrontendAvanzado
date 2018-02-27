@@ -1,0 +1,124 @@
+header.main-header{
+  .background-white;
+  border-bottom: 1px solid @light-grey;
+  position: fixed;
+  width: 100%;
+  z-index: 20;
+  left: 0;
+  top:0;
+
+  .container{
+    .flex-display();
+    align-content: center;
+    min-height: 7.4rem;
+    align-items: center;
+    padding: 0 @gutter*2;
+
+    .main-header__tags{
+      margin-left: 4rem;
+      max-width: 56rem;
+      position: relative;
+      padding: 0 3rem;
+      top:0.3rem;
+
+      .siema{
+
+        >div{
+          .flex-display();
+
+          >div{
+            .text-center;
+            width: inherit!important;
+
+            a{
+              margin: 0 0.5rem;
+              text-align: center;
+              .text-dark;
+              opacity: 0.7;
+              .font-size(1.6);
+              font-weight: 400;
+              font-family: @sans-serif-second-font-family;
+              display: inline-block;
+              width: auto;
+
+            }
+          }
+        }
+      }
+
+      .prev,.next{
+        padding: 0.5rem;
+        border:0;
+        position: absolute;
+        top:40%;
+        height: auto;
+        .transform(translateY(-50%));
+        .font-size(2rem);
+        line-height: 0;
+
+        &:hover,&:focus{
+          background: none;
+        }
+      }
+
+      .prev{
+        left: 0;
+      }
+
+      .next{
+        right:0;
+      }
+    }
+
+    .main-header__actions{
+      margin-left: auto;
+      .flex-display();
+      align-items: center;
+
+      .field{
+        margin-right: 1rem;
+        position: relative;
+
+        &:before{
+          .fonticon_magnifying;
+          position: absolute;
+          top:50%;
+          .transform(translateY(-50%));
+          right:0.8rem;
+          .font-size(1.8);
+        }
+
+        &:after{
+          content:'';
+          width: 1px;
+          .background-dark;
+          height: 100%;
+          position: absolute;
+          top:0;
+          right:4rem;
+        }
+
+        input{
+          margin: 0;
+          padding-right: 4rem;
+        }
+      }
+    }
+  }
+}
+
+main{
+  padding-top: 10rem;
+  padding-bottom: 4rem;
+}
+
+footer{
+  border-top: 1px solid @light-grey;
+
+  .container{
+    min-height: 7.4rem;
+    .flex-display();
+    align-items: center;
+    padding: 0 @gutter*2;
+  }
+}
