@@ -1,4 +1,4 @@
-header.main-header{
+.main-header{
   .background-white;
   border-bottom: 1px solid @light-grey;
   position: fixed;
@@ -7,6 +7,10 @@ header.main-header{
   left: 0;
   top:0;
 
+  @media @medium-down{
+    position: inherit;
+  }
+
   .container{
     .flex-display();
     align-content: center;
@@ -14,12 +18,48 @@ header.main-header{
     align-items: center;
     padding: 0 @gutter*2;
 
+    @media @medium-down{
+      padding: 1rem @gutter*2;
+    }
+
+    @media @xsmall{
+      padding: 1rem @gutter;
+    }
+
+    @media @large-down{
+      .flex-wrap(wrap);
+
+    }
+
     .main-header__tags{
       margin-left: 4rem;
-      max-width: 56rem;
+      max-width: 60rem;
       position: relative;
       padding: 0 3rem;
       top:0.3rem;
+
+      .onscroll&{
+        position: fixed;
+        left: 0;
+        top:0;
+        width: 100%;
+        z-index: 20;
+        background: white;
+        padding: 1.5rem @gutter*2;
+        border-bottom: 1px solid @light-grey;
+
+        @media @xsmall{
+          padding: 1rem @gutter;
+        }
+      }
+
+      @media @medium-down{
+        order: 3;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 1.5rem 0;
+      }
 
       .siema{
 
@@ -79,6 +119,10 @@ header.main-header{
         margin-right: 1rem;
         position: relative;
 
+        @media @xsmall{
+          display: none;
+        }
+
         &:before{
           .fonticon_magnifying;
           position: absolute;
@@ -110,6 +154,14 @@ header.main-header{
 main{
   padding-top: 10rem;
   padding-bottom: 4rem;
+
+  @media @medium-down{
+    padding-top: 2rem
+  }
+
+  .onscroll+ &{
+    padding-top: 6rem;
+  }
 }
 
 footer{
@@ -120,5 +172,21 @@ footer{
     .flex-display();
     align-items: center;
     padding: 0 @gutter*2;
+
+    .main-footer__action{
+      margin-left: auto;
+      .flex-display();
+      .align-items(center);
+
+      a{
+        .font-size-small;
+        color: @body-color;
+
+        svg{
+          .transform(rotate(90deg));
+          margin-bottom: -6px;
+        }
+      }
+    }
   }
 }

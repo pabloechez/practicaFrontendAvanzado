@@ -1,26 +1,33 @@
 import css from './less/main.less';
-
 import moment from 'moment';
-import Siema from 'siema';
+import { AppController} from "./js/AppController";
+import { HeaderController } from "./js/HeaderController";
+import { PostsService} from "./js/PostsService";
+import  { PostsListController} from "./js/PostListController";
+import { FormController } from './js/FormController';
+import { CommentsService} from "./js/CommentsService";
+import { CommentsListController} from "./js/CommentsListController";
+import { PubSub } from 'pubsub-js';
 
-const mySiema = new Siema({
-    perPage: {
-        768: 2,
-        1024: 6,
-    },
-    selector: '.siema',
-    easing: 'ease-out',
-    startIndex: 0,
-    loop: false
+document.addEventListener("DOMContentLoaded", ()=> {
 
-});
-const prev = document.querySelector('.prev');
-const next = document.querySelector('.next');
+    let appController = new AppController(".siema");
+    let headerController = new HeaderController(".prev",".next", appController);
+    appController.carrouselRecharge();
 
-prev.addEventListener('click', () => mySiema.prev());
-next.addEventListener('click', () => mySiema.next());
+    let index= document.querySelector('.post-content__large');
+    if(index){
+        let postService = new PostsService('http://localhost:3001/posts/');
+        let postController =new PostsListController(".post-content__large",".post-content__small",postService,'es');
+        postController.loadPosts();
+    }
 
-document.addEventListener("DOMContentLoaded", function(event) {
-    setTimeout(function(){ mySiema.resizeHandler(); }, 100);
+    let comments= document.querySelector('.comments');
+    if(comments){
+        let commentService = new CommentsService('http://localhost:3001/comments/');
+        let commentController =new CommentsListController(".comments",commentService,PubSub);
+        let formController = new FormController('.comments-form', commentService, PubSub);
+        commentController.loadCommentsOnScroll();
+    }
 });
 

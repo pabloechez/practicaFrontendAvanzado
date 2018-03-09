@@ -1,6 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+let FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports={
     entry: path.join(__dirname,'src','entry.js'),
@@ -14,7 +16,7 @@ module.exports={
         rules: [
             {
                 test: /\.less$/,
-                use: [{
+                use:  [{
                     loader: "style-loader"
                 }, {
                     loader: "css-loader?url=false", options: {
@@ -24,7 +26,7 @@ module.exports={
                     loader: "less-loader", options: {
                         sourceMap: true
                     }
-                }]
+                }],
             },
             {
                 test:/\.js$/,
@@ -33,16 +35,15 @@ module.exports={
             },
 
             {
-                test: /assets.[^img]/,
-                use: 'file-loader?name=[name].[ext]&useRelativePath=true'
-            },
-
-            {
                 test: /\.(jpe?g|png|gif|svg)$/,
                 use: [
                     'file-loader?name=[name].[ext]&useRelativePath=true',
                     'image-webpack-loader'
                 ]
+            },
+            {
+                test: /assets.[^img]/,
+                use: 'file-loader?name=[name].[ext]&useRelativePath=true'
             },
             {
                 test: /\.(eot|ttf|woff|svg)$/,
@@ -58,21 +59,25 @@ module.exports={
     },
 
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin(),
         new HtmlWebpackPlugin({
-            template: path.join(__dirname,'src/','index.html'),
+            template: path.join(__dirname, 'src', 'index.html'),
             minify: {
                 collapseWhitespace: true
             }
         }),
         new HtmlWebpackPlugin({
             filename: 'post-detail.html',
-            template: path.join(__dirname,'src/','post-detail.html'),
+            template: path.join(__dirname, 'src', 'post-detail.html'),
             minify: {
                 collapseWhitespace: true
             }
         }),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin()
+        new FaviconsWebpackPlugin({
+            logo: path.join(__dirname,'src/assets/img/','logo.svg'),
+            prefix: 'src/assets/img/icons-[hash]/',
+        })
     ],
 
     devServer: {
