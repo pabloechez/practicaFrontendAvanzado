@@ -63,15 +63,15 @@ export class PostsListController {
 
         let html= ` <article class="post ${clase}">
                 <div class="post__img">
-                    <img src="./src/assets/img/${this.postImg}" alt="Post img">
+                    <a href="/post-detail.html"><img src="./src/assets/img/${this.postImg}" alt="Post img"></a>
                 </div>
                 <div class="post__icons">
                     <span class="icon-calendar">${this.date}</span>
-                    <a  href="" class="icon-comments">23</a>
+                    <a  href="/post-detail.html#comments" class="icon-comments">23</a>
                     <a  href="" class="icon-heart"></a>
                 </div>
                 <div class="post__text">
-                    <h3>${this.postTitle}</h3>
+                    <a href="/post-detail.html"> <h3>${this.postTitle}</h3></a>
                     <p>${this.postSmallText}</p>
 
                 </div>
@@ -111,6 +111,20 @@ export class PostsListController {
         this.element.innerHTML = html;
     }
 
+    renderDetailPost(post) {
+        let html = '';
+        html += `<article class="song">
+                <div class="cover">
+                    <img src="${song.cover}" alt="${song.artist} - ${song.title}">
+                </div>
+                <div class="info">
+                    <div class="title">${song.title}</div>
+                    <div class="artist">${song.artist}</div>
+                </div>
+            </article>`;
+        this.element.innerHTML = html;
+    }
+
     loadPosts() {
         this.showLoadingMessage();
         this.postsService.list().then(posts => {
@@ -121,6 +135,20 @@ export class PostsListController {
             }
         }).catch((error) => {
             console.error("ERROR RETRIEVING POSTS", error);
+            this.showErrorMessage();
+        });
+    }
+
+    loadPost() {
+        this.showLoadingMessage();
+        this.postsService.list().then(posts => {
+            if (posts.length == 0) {
+                this.showNoPostsMessage();
+            } else {
+                this.renderDetailPost(posts);
+            }
+        }).catch((error) => {
+            console.error("ERROR RETRIEVING POST", error);
             this.showErrorMessage();
         });
 

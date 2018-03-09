@@ -30,43 +30,28 @@ export class AppController{
         this.element.resizeHandler();
     }
 
-    scrollTo(){
-        var scrollItems = document.getElementsByClassName("scrollto");
+    scrollTop(){
+        scrollTo(document.documentElement,0,1250);
 
-        for (var i = 0; i < scrollItems.length; i++) {
-            scrollItems[i].addEventListener("click", function(event) {
-                var goTo = this.href.split("#");
-
-                if (goTo.length === 2) {
-                    event.preventDefault();
-                    var sectionToGo = goTo[goTo.length - 1];
-                    var elementToGo = document.getElementById(sectionToGo);
-                    var elemntPosition = elementToGo.getBoundingClientRect().top;
-                    var jump=document.documentElement.scrollTop+elemntPosition;
-                    scrollTo(document.documentElement,jump,1250);
-                }
-            });
-        }
-
-        function scrollTo(element, to, duration) {
-            var start = element.scrollTop,
+        scrollTo=(element, to, duration) =>{
+            let start = element.scrollTop,
                 change = to - start,
                 currentTime = 0,
                 increment = 20;
 
 
-            var animateScroll = function(){
+            let animateScroll = ()=>{
                 currentTime += increment;
-                var val = Math.easeInOutQuad(currentTime, start, change, duration);
+                let val = easeInOutQuad(currentTime, start, change, duration);
                 element.scrollTop = val;
                 if(currentTime < duration) {
                     setTimeout(animateScroll, increment);
                 }
             };
             animateScroll();
-        }
+        };
 
-        Math.easeInOutQuad = function (t, b, c, d) {
+        let easeInOutQuad =(t, b, c, d) =>{
             t /= d/2;
             if (t < 1) return c/2*t*t + b;
             t--;
