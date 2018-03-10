@@ -2,53 +2,122 @@
   "posts": [
     {
       "id": 1,
+      "thumbnail": "video_placeholder.mp4",
       "img": "img2.jpg",
       "title": "Nulla vitae elit libero, a pharetra augue. Vivamus ",
       "small_text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
       "author_name": "Name",
       "author_lastname": "Lastname",
-      "author_img": "author.jpg",
+      "author_img": "author.png",
       "date": "2018-03-05T21:53:00.066Z"
     },
     {
       "id": 2,
+      "thumbnail": "img1.jpg",
       "img": "img1.jpg",
       "title": "Nulla vitae elit libero, a pharetra augue. Vivamus ",
       "small_text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
       "author_name": "Name",
       "author_lastname": "Lastname",
-      "author_img": "author.jpg",
-      "date": "2018-03-04T19:35:47.066Z"
+      "author_img": "author.png",
+      "date": "2018-03-04T19:35:47.066Z",
+      "tag":""
     },
     {
       "id": 3,
+      "thumbnail": "img2.jpg",
       "img": "img1.jpg",
       "title": "Nulla vitae elit libero, a pharetra augue. Vivamus ",
       "small_text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
       "author_name": "Name",
       "author_lastname": "Lastname",
-      "author_img": "author.jpg",
-      "date": "2018-02-05T17:28:47.066Z"
+      "author_img": "author.png",
+      "date": "2018-02-05T17:28:47.066Z",
+      "tag":""
     },
     {
       "id": 4,
+      "thumbnail": "img3.jpg",
       "img": "img1.jpg",
       "title": "Nulla vitae elit libero, a pharetra augue. Vivamus ",
       "small_text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
       "author_name": "Name",
       "author_lastname": "Lastname",
-      "author_img": "author.jpg",
-      "date": "2018-03-05T18:28:47.066Z"
+      "author_img": "",
+      "date": "2018-03-05T18:28:47.066Z",
+      "tag":""
     },
     {
       "id": 5,
+      "thumbnail": "img4.jpg",
       "img": "img1.jpg",
       "title": "Nulla vitae elit libero, a pharetra augue. Vivamus ",
       "small_text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
       "author_name": "Name",
       "author_lastname": "Lastname",
-      "author_img": "author.jpg",
-      "date": "2018-03-05T18:28:47.066Z"
+      "author_img": "author.png",
+      "date": "2018-03-05T18:28:47.066Z",
+      "tag":""
+    },
+    {
+      "id": 6,
+      "thumbnail": "img5.jpg",
+      "img": "img1.jpg",
+      "title": "Nulla vitae elit libero, a pharetra augue. Vivamus ",
+      "small_text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
+      "author_name": "Name",
+      "author_lastname": "Lastname",
+      "author_img": "",
+      "date": "2018-03-05T18:28:47.066Z",
+      "tag":""
+    },
+    {
+      "id": 7,
+      "thumbnail": "img6.jpg",
+      "img": "img1.jpg",
+      "title": "Nulla vitae elit libero, a pharetra augue. Vivamus ",
+      "small_text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
+      "author_name": "Name",
+      "author_lastname": "Lastname",
+      "author_img": "author.png",
+      "date": "2018-03-08T18:28:47.066Z",
+      "tag":""
+    },
+    {
+      "id": 8,
+      "thumbnail": "img7.jpg",
+      "img": "img1.jpg",
+      "title": "Nulla vitae elit libero, a pharetra augue. Vivamus ",
+      "small_text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
+      "author_name": "Name",
+      "author_lastname": "Lastname",
+      "author_img": "author.png",
+      "date": "2018-03-08T18:28:47.066Z",
+      "tag":"car"
+    },
+    {
+      "id": 9,
+      "thumbnail": "img8.jpg",
+      "img": "img1.jpg",
+      "title": "Nulla vitae elit libero, a pharetra augue. Vivamus ",
+      "small_text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
+      "author_name": "Name",
+      "author_lastname": "Lastname",
+      "author_img": "author.png",
+      "date": "2018-03-08T18:28:47.066Z",
+      "tag":"car"
+    },
+    {
+      "id": 10,
+      "thumbnail": "img9.jpg",
+      "img": "img1.jpg",
+      "title": "Nulla vitae elit libero, a pharetra augue. Vivamus ",
+      "small_text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
+      "author_name": "Name",
+      "author_lastname": "Lastname",
+      "author_img": "author.png",
+      "date": "2018-03-08T18:28:47.066Z",
+      "tag":"car"
     }
   ],
   "comments": [

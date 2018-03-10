@@ -1,7 +1,7 @@
 export class CommentsService {
 
     constructor(url) {
-        this.url = url;
+        this.url = url
     }
 
     async list() {
@@ -14,7 +14,7 @@ export class CommentsService {
             method: 'post',
             body: JSON.stringify(comment),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             }
         });
         return response.json();

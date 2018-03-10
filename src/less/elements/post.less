@@ -27,6 +27,12 @@
       object-fit: cover;
       height: 100%;
     }
+
+    video{
+      width: 100%;
+      height: 100%;
+      background: white;
+    }
   }
 
   .post__icons{
@@ -68,6 +74,10 @@
   .post__author{
     .flex-display();
     margin-top: 1rem;
+
+    img{
+      max-width: 5rem;
+    }
 
     .name{
       margin-left: 1rem;
@@ -117,6 +127,8 @@
 
     p{
       .font-size(1.3);
+      height: 6rem;
+      overflow: hidden;
     }
   }
 }

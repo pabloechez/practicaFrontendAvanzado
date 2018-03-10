@@ -20,6 +20,36 @@
         }
       }
 
+      .post__icons{
+        padding: 1rem 0;
+        .font-size(1.3);
+        margin-bottom: 2rem;
+
+        span,a{
+          display: inline-block;
+          .text-dark;
+          margin-right: 0.5rem;
+        }
+
+        .icon-calendar{
+          &:before{
+            .fonticon_calendar();
+          }
+        }
+
+        .icon-comments{
+          &:before{
+            .fonticon_comments();
+          }
+        }
+
+        .icon-heart{
+          &:before{
+            .fonticon_heart();
+          }
+        }
+      }
+
       div.post-detail__text{
 
         h2{

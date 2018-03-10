@@ -31,31 +31,31 @@ export class AppController{
     }
 
     scrollTop(){
-        scrollTo(document.documentElement,0,1250);
+        let element=document.documentElement;
+        let to= 0;
+        let duration= 1250;
 
-        scrollTo=(element, to, duration) =>{
-            let start = element.scrollTop,
-                change = to - start,
-                currentTime = 0,
-                increment = 20;
+        let start = element.scrollTop,
+            change = to - start,
+            currentTime = 0,
+            increment = 20;
 
 
-            let animateScroll = ()=>{
-                currentTime += increment;
-                let val = easeInOutQuad(currentTime, start, change, duration);
-                element.scrollTop = val;
-                if(currentTime < duration) {
-                    setTimeout(animateScroll, increment);
-                }
-            };
-            animateScroll();
+        let animateScroll = ()=>{
+            currentTime += increment;
+            let val = this.easeInOutQuad(currentTime, start, change, duration);
+            element.scrollTop = val;
+            if(currentTime < duration) {
+                setTimeout(animateScroll, increment);
+            }
         };
-
-        let easeInOutQuad =(t, b, c, d) =>{
-            t /= d/2;
-            if (t < 1) return c/2*t*t + b;
-            t--;
-            return -c/2 * (t*(t-2) - 1) + b;
-        };
+        animateScroll();
     }
+
+    easeInOutQuad(t, b, c, d){
+        t /= d/2;
+        if (t < 1) return c/2*t*t + b;
+        t--;
+        return -c/2 * (t*(t-2) - 1) + b;
+    };
 }

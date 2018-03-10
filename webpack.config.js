@@ -3,30 +3,43 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 let FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+
+const isProduction = process.env.ENTORNO === "produccion";
+let lessLoaders = [];
+if (isProduction) {
+    lessLoaders = ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: ['css-loader?url=false&sourceMap=true', 'less-loader?sourceMap=true']
+    });
+} else {
+    lessLoaders =  [{
+        loader: "style-loader"
+        }, {
+            loader: "css-loader?url=false", options: {
+                sourceMap: true
+            }
+        }, {
+            loader: "less-loader", options: {
+                sourceMap: true
+            }
+        }];
+}
+
 
 module.exports={
     entry: path.join(__dirname,'src','entry.js'),
 
     output:{
         filename: 'bundle.js',
-        path: path.resolve(__dirname,'dist')
+        path: path.resolve(__dirname,'dist'),
     },
 
     module: {
         rules: [
             {
                 test: /\.less$/,
-                use:  [{
-                    loader: "style-loader"
-                }, {
-                    loader: "css-loader?url=false", options: {
-                        sourceMap: true
-                    }
-                }, {
-                    loader: "less-loader", options: {
-                        sourceMap: true
-                    }
-                }],
+                use: lessLoaders,
             },
             {
                 test:/\.js$/,
@@ -35,9 +48,9 @@ module.exports={
             },
 
             {
-                test: /\.(jpe?g|png|gif|svg)$/,
+                test: /\.(jpe?g|png|gif|svg|mov|mp4)$/,
                 use: [
-                    'file-loader?name=[name].[ext]&useRelativePath=true',
+                    'file-loader?name=[name].[ext]&useRelativePath=true&limit=10000',
                     'image-webpack-loader'
                 ]
             },
@@ -53,7 +66,8 @@ module.exports={
             {
                 test: /\.(html|ejs)$/,
                 use:['html-loader','ejs-html-loader']
-            }
+            },
+
 
         ]
     },
@@ -77,7 +91,11 @@ module.exports={
         new FaviconsWebpackPlugin({
             logo: path.join(__dirname,'src/assets/img/','logo.svg'),
             prefix: 'src/assets/img/icons-[hash]/',
-        })
+        }),
+        new ExtractTextPlugin('style.css'),
+        new CopyWebpackPlugin([
+            {from:'src/assets/img',to:'src/assets/img'}
+        ]),
     ],
 
     devServer: {
