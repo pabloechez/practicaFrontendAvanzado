@@ -18,8 +18,6 @@ export class PostsListController {
         this.postTag='';
         this.date='';
         this.language=language;
-
-
     }
 
     showLoadingMessage() {
@@ -162,20 +160,6 @@ export class PostsListController {
         this.interestSelector.innerHTML  = interestPost;
     }
 
-    renderDetailPost(post) {
-        let html = '';
-        html += `<article class="song">
-                <div class="cover">
-                    <img src="${song.cover}" alt="${song.artist} - ${song.title}">
-                </div>
-                <div class="info">
-                    <div class="title">${song.title}</div>
-                    <div class="artist">${song.artist}</div>
-                </div>
-            </article>`;
-        this.element.innerHTML = html;
-    }
-
     loadPosts() {
         this.showLoadingMessage();
         this.postsService.list().then(posts => {
@@ -190,20 +174,6 @@ export class PostsListController {
         });
     }
 
-    loadPost() {
-        this.showLoadingMessage();
-        this.postsService.list().then(posts => {
-            if (posts.length == 0) {
-                this.showNoPostsMessage();
-            } else {
-                this.renderDetailPost(posts);
-            }
-        }).catch((error) => {
-            console.error("ERROR RETRIEVING POST", error);
-            this.showErrorMessage();
-        });
-
-    }
 
     isUriImage(uri) {
         uri = uri.split('?')[0];

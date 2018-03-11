@@ -1,9 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-let FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 const isProduction = process.env.ENTORNO === "produccion";
 let lessLoaders = [];
@@ -15,15 +16,15 @@ if (isProduction) {
 } else {
     lessLoaders =  [{
         loader: "style-loader"
-        }, {
-            loader: "css-loader?url=false", options: {
-                sourceMap: true
-            }
-        }, {
-            loader: "less-loader", options: {
-                sourceMap: true
-            }
-        }];
+    }, {
+        loader: "css-loader?url=false", options: {
+            sourceMap: true
+        }
+    }, {
+        loader: "less-loader", options: {
+            sourceMap: true
+        }
+    }];
 }
 
 
@@ -46,11 +47,10 @@ module.exports={
                 use: "babel-loader",
                 exclude: path.join(__dirname,'node_modules')
             },
-
             {
                 test: /\.(jpe?g|png|gif|svg|mov|mp4)$/,
                 use: [
-                    'file-loader?name=[name].[ext]&useRelativePath=true&limit=10000',
+                    'file-loader?name=[name].[ext]&useRelativePath=true',
                     'image-webpack-loader'
                 ]
             },
@@ -66,9 +66,7 @@ module.exports={
             {
                 test: /\.(html|ejs)$/,
                 use:['html-loader','ejs-html-loader']
-            },
-
-
+            }
         ]
     },
 
@@ -92,10 +90,12 @@ module.exports={
             logo: path.join(__dirname,'src/assets/img/','logo.svg'),
             prefix: 'src/assets/img/icons-[hash]/',
         }),
-        new ExtractTextPlugin('style.css'),
+        new ExtractTextPlugin('src/css/style.css'),
         new CopyWebpackPlugin([
-            {from:'src/assets/img',to:'src/assets/img'}
+            {from:'src/assets/img',to:'src/assets/img'},
+            { from: 'src/assets/fonts', to: 'src/assets/fonts' }
         ]),
+        new ImageminPlugin({disable: process.env.ENTORNO !== 'produccion',})
     ],
 
     devServer: {

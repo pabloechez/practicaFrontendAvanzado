@@ -6,7 +6,7 @@
   "scripts": {
     "webpack": "ENTORNO=desarrollo webpack",
     "dev": "ENTORNO=desarrollo webpack --watch",
-    "build": "ENTORNO=produccion webpack -p",
+    "build": "ENTORNO=produccion webpack",
     "serve": "ENTORNO=desarrollo webpack-dev-server",
     "json-server": "json-server --watch db.json --port 3001"
   },
@@ -38,9 +38,10 @@
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
+    "imagemin-webpack-plugin": "^2.0.0",
     "moment": "^2.21.0",
+    "pubsub-js": "^1.6.0",
     "reset-css": "^2.2.1",
-    "siema": "^1.5.1",
-    "pubsub-js": "^1.6.0"
+    "siema": "^1.5.1"
   }
 }

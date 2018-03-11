@@ -11,6 +11,7 @@ import { PubSub } from 'pubsub-js';
 import { FooterController} from "./js/FooterController";
 
 document.addEventListener("DOMContentLoaded", ()=> {
+    setTimeout(() => {document.querySelector('body').style.opacity="1";},250);
 
     //Arrancamos en carousel
     let appController = new AppController(".siema");
