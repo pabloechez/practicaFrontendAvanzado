@@ -98,7 +98,7 @@ export class PostsListController {
         let interestPost='';
         for (let post of posts) {
             if(this.isUriImage(post.thumbnail)){
-                this.postThumb=`<img srcset="./src/assets/img/${post.thumbnail}" alt="Post img">`;
+                this.postThumb=`<img src="./src/assets/img/${post.thumbnail}" srcset="./src/assets/img/${post.thumbnail} 400w,./src/assets/img/2-${post.thumbnail} 800w,./src/assets/img/3-${post.thumbnail} 19200w" alt="Post img">`;
             }else{
                 this.postThumb=`<video width="100%" height="240" autoplay loop="loop"><source src="./src/assets/img/${post.thumbnail}" type="video/mp4">Video</video>`;
             }

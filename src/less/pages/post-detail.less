@@ -13,10 +13,14 @@
         max-width: 100%;
 
         &.post-detail__main-img{
-          height: 450px;
+          height: 45rem;
           object-fit: cover;
           width: 100%;
           margin-bottom: 4rem;
+
+          @media @small-down{
+            height: 25rem;
+          }
         }
       }
 

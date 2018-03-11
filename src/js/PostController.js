@@ -22,7 +22,7 @@ export class PostController {
 
     renderPost(post) {
         let html = '';
-        html += `<img srcset="./src/assets/img/${post.img}" alt="Img" class="post-detail__main-img">
+        html += `<img src="/src/assets/img/${post.img}" srcset="./src/assets/img/${post.img} 400w,./src/assets/img/2-${post.img} 800w,./src/assets/img/3-${post.img} 1200w" alt="Img" class="post-detail__main-img">
                 <div class="post__icons">
                     <span class="icon-calendar">${this.timeController.getDate(post.date)}</span>
                     <a  href="#comments" class="icon-comments">23</a>
@@ -35,7 +35,7 @@ export class PostController {
                 </div>
                 <div class="author">
                 <div class="img">
-                    <img src="./assets/img/${post.author_img}" alt="">
+                    <img src="./src/assets/img/${post.author_img}" alt="">
                 </div>
                 <div class="name">
                     <p>${post.author_name}</p>
