@@ -1,23 +1,22 @@
-var moment = require('moment');
 
 export class PostsListController {
 
 
-    constructor(mainSelector,interestSelector,selector,postService,language) {
+    constructor(mainSelector,interestSelector,selector,postService,timeController) {
         this.mainElement = document.querySelector(mainSelector);
         this.element = document.querySelector(selector);
         this.interestSelector = document.querySelector(interestSelector);
         this.postsService = postService;
-        this.postThumb='';
-        this.postImg='';
-        this.postTitle= '';
-        this.postSmallText='';
-        this.postName='';
-        this.postLastName='';
-        this.postAuthorImg='';
-        this.postTag='';
-        this.date='';
-        this.language=language;
+        this.postThumb;
+        this.postImg;
+        this.postTitle;
+        this.postSmallText;
+        this.postName;
+        this.postLastName;
+        this.postAuthorImg;
+        this.postTag;
+        this.date;
+        this.timeController=timeController;
     }
 
     showLoadingMessage() {
@@ -32,37 +31,11 @@ export class PostsListController {
         this.element.innerHTML = '<div class="info">No hay ningun post</div>';
     }
 
-    getDate(date){
-        moment.locale(this.language);
-        let diff = moment.duration(moment().diff(moment(date)));
-        let days = parseInt(diff.asDays());
-        let hours = parseInt(diff.asHours());
-        let minutes = parseInt(diff.asMinutes());
-        let seconds =  parseInt(diff.asSeconds());
-
-        if(minutes<=1){
-            return 'hace: '+seconds+' seg';
-        }
-        if(hours<1){
-            return 'hace: '+minutes+' min';
-        }
-
-        if(days<1){
-            return 'hace: '+hours+' h';
-        }
-
-        if(days<=7){
-            return moment(date).format('dddd');
-        }
-
-        return moment(date).format('MM-DD-YYYY HH:mm:ss');
-    }
 
     html(clase){
         let html= ` <article class="post ${clase}">
                 <div class="post__img">
-                    <a href="/post-detail.html">
-                        
+                    <a href="/post-detail.html">  
                         ${this.postThumb}
                     </a>
                 </div>
@@ -74,7 +47,6 @@ export class PostsListController {
                 <div class="post__text">
                     <a href="post-detail.html"> <h3>${this.postTitle}</h3></a>
                     <p>${this.postSmallText}</p>
-
                 </div>
                 <div class="post__author">
                     <div class="img">
@@ -86,20 +58,17 @@ export class PostsListController {
                     </div>
                 </div>
             </article>`;
-
         return html;
     }
 
     htmlLandscape(clase){
         let html= ` <article class="post ${clase}">
                 <div class="post__img">
-                    <a href="/post-detail.html">
-                        
+                    <a href="/post-detail.html">    
                         ${this.postThumb}
                     </a>
                 </div>
                 <div>
-                
                     <div class="post__icons">
                         <span class="icon-calendar">${this.date}</span>
                         <a  href="post-detail.html#comments" class="icon-comments">23</a>
@@ -108,7 +77,6 @@ export class PostsListController {
                     <div class="post__text">
                         <a href="post-detail.html"> <h3>${this.postTitle}</h3></a>
                         <p>${this.postSmallText}</p>
-    
                     </div>
                     <div class="post__author">
                         <div class="img">
@@ -121,7 +89,6 @@ export class PostsListController {
                     </div>
                 </div>
             </article>`;
-
         return html;
     }
 
@@ -131,9 +98,9 @@ export class PostsListController {
         let interestPost='';
         for (let post of posts) {
             if(this.isUriImage(post.thumbnail)){
-                this.postThumb=`<img src="./src/assets/img/${post.thumbnail}" alt="Post img">`;
+                this.postThumb=`<img srcset="./src/assets/img/${post.thumbnail}" alt="Post img">`;
             }else{
-                this.postThumb=`<video width="100%" height="240" autoplay><source src="./src/assets/img/${post.thumbnail}" type="video/mp4">Video</video>`;
+                this.postThumb=`<video width="100%" height="240" autoplay loop="loop"><source src="./src/assets/img/${post.thumbnail}" type="video/mp4">Video</video>`;
             }
 
             this.postImg=post.img;
@@ -145,8 +112,7 @@ export class PostsListController {
             if(post.author_img==""){
                 this.postAuthorImg='author.jpg';
             }
-            this.date=this.getDate(post.date);
-
+            this.date=this.timeController.getDate(post.date);
             if (post.id==1){
                 mainPost+= this.html('post--large');
             }if(post.id>=2 && post.id<=7){
@@ -183,8 +149,6 @@ export class PostsListController {
         if(imageTypes.indexOf(extension) !== -1) {
             return false;
         }
-
         return true
     }
-
 }

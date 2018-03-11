@@ -20,7 +20,11 @@ export class HeaderController{
                 header.classList.remove('onscroll');
             }
 
-        })
+        });
+
+        document.querySelector('.search__show').addEventListener("click", event => {
+            appController.toggleSearch()
+        });
 
     }
 }

@@ -87,7 +87,7 @@ module.exports={
             }
         }),
         new FaviconsWebpackPlugin({
-            logo: path.join(__dirname,'src/assets/img/','logo.svg'),
+            logo: path.join(__dirname,'src/assets/img/','favicon.svg'),
             prefix: 'src/assets/img/icons-[hash]/',
         }),
         new ExtractTextPlugin('src/css/style.css'),

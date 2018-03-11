@@ -34,6 +34,7 @@
     .main-header__tags{
       margin-left: 4rem;
       max-width: 60rem;
+      width: 100%;
       position: relative;
       padding: 0 3rem;
       top:0.3rem;
@@ -115,36 +116,97 @@
       .flex-display();
       align-items: center;
 
-      .field{
-        margin-right: 1rem;
-        position: relative;
+      .search{
 
         @media @xsmall{
+          &.search--open{
+            position: fixed;
+            background: white;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            z-index: 20;
+            padding: 3rem;
+
+            .search__show{
+              position: fixed;
+              right: 3rem;
+              top: 3rem;
+              margin-right: 0;
+              .text-dark;
+
+
+              &:before{
+                .fonticon_close();
+                .font-size(2.5);
+              }
+            }
+
+            .field{
+              display: block;
+              margin-top: 8rem;
+              margin-right: 0;
+
+              &:before,&:after{
+                display: none;
+              }
+
+              input{
+                border:0;
+                border-bottom: @input-border;
+                border-radius: 0;
+                .font-size-large;
+              }
+            }
+          }
+        }
+
+        .search__show{
           display: none;
+          margin-right: 1rem;
+
+          @media @xsmall{
+            display: block;
+          }
+
+          &:before{
+            .fonticon_magnifying();
+            .font-size(2.5);
+          }
         }
 
-        &:before{
-          .fonticon_magnifying;
-          position: absolute;
-          top:50%;
-          .transform(translateY(-50%));
-          right:0.8rem;
-          .font-size(1.8);
-        }
+        .field{
+          margin-right: 1rem;
+          position: relative;
 
-        &:after{
-          content:'';
-          width: 1px;
-          .background-dark;
-          height: 100%;
-          position: absolute;
-          top:0;
-          right:4rem;
-        }
+          @media @xsmall{
+            display: none;
+          }
 
-        input{
-          margin: 0;
-          padding-right: 4rem;
+          &:before{
+            .fonticon_magnifying;
+            position: absolute;
+            top:50%;
+            .transform(translateY(-50%));
+            right:0.8rem;
+            .font-size(1.8);
+          }
+
+          &:after{
+            content:'';
+            width: 1px;
+            .background-dark;
+            height: 100%;
+            position: absolute;
+            top:0;
+            right:4rem;
+          }
+
+          input{
+            margin: 0;
+            padding-right: 4rem;
+          }
         }
       }
     }

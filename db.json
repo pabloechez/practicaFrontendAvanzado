@@ -53,10 +53,11 @@
       "img": "img1.jpg",
       "title": "Nulla vitae elit libero, a pharetra augue. Vivamus ",
       "small_text": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
+      "text": "<p>Algolia Search Party is a monthly Meetup we organize around a common theme that makes fellow devs’ lives easier. Topics have included Laravel, static websites and, this month, React and some cool things you can do with it.</p><p>Since the talks were useful and well received, we are sharing summaries and videos with you.</p><h2>CodeSandbox: your IDE in a browser</h2><p><b>Algolia</b> Search Party is a monthly <i> Meetup we organize</i> around a common theme that makes fellow devs’ lives easier. Topics have included Laravel, static websites and, this month, React and some cool things you can do with it.</p><p>Since the talks were useful and well received, we are sharing summaries and videos with you.</p><p>Algolia Search Party is a monthly Meetup we organize around a common theme that makes fellow devs’ lives easier. Topics have included Laravel, static websites and, this month, React and some cool things you can do with it.</p><p>Since the <a href='#'>talks were useful</a> and well received, we are sharing summaries and videos with you.</p><h2>CodeSandbox: your IDE in a browser</h2><ul><li>lorem ipsum</li><li>lorem ipsum</li><li>lorem ipsum</li></ul><p>Algolia Search Party is a monthly Meetup we organize around a common theme that makes fellow devs’ lives easier. Topics have included Laravel, static websites and, this month, React and some cool things you can do with it.</p><p>Since the talks were useful and well received, we are sharing summaries and videos with you.</p><p>Algolia Search Party is a monthly Meetup we organize around a common theme that makes fellow devs’ lives easier. Topics have included Laravel, static websites and, this month, React and some cool things you can do with it.</p><p>Since the talks were useful and well received, we are sharing summaries and videos with you.</p>",
       "author_name": "Name",
       "author_lastname": "Lastname",
       "author_img": "author.png",
-      "date": "2018-03-05T18:28:47.066Z",
+      "date": "2018-03-09T18:28:47.066Z",
       "tag":""
     },
     {

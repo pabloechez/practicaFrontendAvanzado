@@ -2,15 +2,16 @@ import Siema from "siema";
 
 export class AppController{
 
-    constructor(selector){
+    constructor(selector,carousel){
         this.element=document.querySelector(selector);
+        this.carousel=carousel;
     }
 
 
     showCarrousel(){
-        this.element = new Siema({
+        this.carousel = new Siema({
             perPage: {300: 3,800: 5,1024:6,},
-            selector: this.element,
+            selector: this.carousel,
             easing: 'ease-out',
             startIndex: 0,
             loop: false
@@ -19,15 +20,15 @@ export class AppController{
     }
 
     carrouselMoveRight(){
-        this.element.next()
+        this.carousel.next()
     }
 
     carrouselMoveLeft(){
-        this.element.prev();
+        this.carousel.prev();
     }
 
     carrouselRecharge(){
-        this.element.resizeHandler();
+        this.carousel.resizeHandler();
     }
 
     scrollTop(){
@@ -58,4 +59,8 @@ export class AppController{
         t--;
         return -c/2 * (t*(t-2) - 1) + b;
     };
+
+    toggleSearch(){
+        this.element.querySelector('.search').classList.toggle("search--open");
+    }
 }
